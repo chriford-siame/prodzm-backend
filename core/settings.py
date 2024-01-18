@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'prodzm',
+    
+    "drf_yasg2",
+    "rest_framework",
+    "rest_framework_simplejwt",
+    "rolepermissions",
 ]
 
 MIDDLEWARE = [
