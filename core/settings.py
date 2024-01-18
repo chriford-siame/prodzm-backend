@@ -143,6 +143,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+static_dir_is_valid = os.path.exists(os.path.join(BASE_DIR, '.static'))
+if not static_dir_is_valid:
+    os.mkdir(os.path.join(BASE_DIR, '.static/'))
+
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'core/static/'),
