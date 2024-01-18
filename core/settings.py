@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -141,8 +143,22 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+static_dir_is_valid = os.path.exists(os.path.join(BASE_DIR, '.static'))
+if not static_dir_is_valid:
+    os.mkdir(os.path.join(BASE_DIR, '.static/'))
 
-STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'core/static/'),
+]
+
+STATIC_URL = '.static/'
+STATIC_ROOT = BASE_DIR / '.static/'
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'core/media/'
+
+ROLEPERMISSIONS_MODULE = "prodzm.roles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
