@@ -69,4 +69,56 @@ class ReviewAdmin(admin.ModelAdmin):
     search_fields = ('product__name', 'customer__first_name', 'customer__last_name')
     ordering = ('-created_at',)
 
-# Register your models here.
+
+@admin.register(Customer)
+class CustomerAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for Customer model.
+    """
+    list_display = ('first_name', 'last_name', 'email', 'phone_number')
+    search_fields = ('first_name', 'last_name', 'email')
+    ordering = ('last_name', 'first_name')
+
+
+class OrderItemInline(admin.TabularInline):
+    """
+    Inline admin configuration for Order Items within the Order admin view.
+    """
+    model = OrderItem
+    extra = 1
+    fields = ('product', 'quantity', 'unit_price')
+    readonly_fields = ('unit_price',)
+
+
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for Order model.
+    """
+    list_display = ('id', 'customer', 'created_at', 'status', 'total_price')
+    list_filter = ('status', 'created_at')
+    search_fields = ('customer__first_name', 'customer__last_name', 'id')
+    date_hierarchy = 'created_at'
+    ordering = ('-created_at',)
+    inlines = [OrderItemInline]
+
+
+@admin.register(OrderItem)
+class OrderItemAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for OrderItem model.
+    """
+    list_display = ('order', 'product', 'quantity', 'unit_price')
+    search_fields = ('product__name', 'order__id')
+    ordering = ('order',)
+
+
+@admin.register(Shipping)
+class ShippingAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for Shipping model.
+    """
+    list_display = ('order', 'tracking_number', 'status', 'shipped_at', 'delivered_at')
+    list_filter = ('status', 'shipped_at', 'delivered_at')
+    search_fields = ('tracking_number', 'order__id')
+    ordering = ('-shipped_at',)
