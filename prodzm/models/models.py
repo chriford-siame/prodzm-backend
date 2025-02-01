@@ -15,7 +15,7 @@ class Category(models.Model):
 class Product(models.Model):
     """
     Represents a product in the dropshipping store. 
-    This model stores information about the product, its price, stock, supplier, and associated images.
+    This model stores information about the product, its price, stockm and supplier.
     """
     name = models.CharField(max_length=255, help_text="The name of the product.")
     description = models.TextField(help_text="A detailed description of the product.")
