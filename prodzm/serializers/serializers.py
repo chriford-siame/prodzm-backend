@@ -76,3 +76,20 @@ class OrderItemSerializer(serializers.ModelSerializer):
         read_only_fields = ('unit_price',)
 
 
+class OrderSerializer(serializers.ModelSerializer):
+    """
+    Serializer for Order model.
+    """
+    customer = CustomerSerializer(read_only=True)
+    items = OrderItemSerializer(many=True, read_only=True)
+    total_price = serializers.FloatField(source='get_total_price', read_only=True)
+
+    class Meta:
+        model = Order
+        fields = ('id', 'customer', 'status', 'created_at', 'updated_at', 'items', 'total_price')
+        read_only_fields = ('created_at', 'updated_at', 'total_price')
+
+    def get_total_price(self, obj):
+        return sum([item.quantity * item.unit_price for item in obj.items.all()])
+
+
