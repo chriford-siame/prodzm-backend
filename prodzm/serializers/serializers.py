@@ -42,3 +42,16 @@ class ProductSerializer(serializers.ModelSerializer):
             return reviews.aggregate(Avg('rating'))['rating__avg']
         return 0
 
+
+class ReviewSerializer(serializers.ModelSerializer):
+    """
+    Serializer for Review model.
+    """
+    customer = serializers.StringRelatedField()  # Display customer name
+
+    class Meta:
+        model = Review
+        fields = ('id', 'product', 'customer', 'rating', 'review_text', 'created_at')
+        read_only_fields = ('created_at',)
+
+
