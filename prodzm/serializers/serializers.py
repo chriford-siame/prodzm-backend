@@ -55,3 +55,12 @@ class ReviewSerializer(serializers.ModelSerializer):
         read_only_fields = ('created_at',)
 
 
+class CustomerSerializer(serializers.ModelSerializer):
+    """
+    Serializer for Customer model.
+    """
+    class Meta:
+        model = Customer
+        fields = ('id', 'first_name', 'last_name', 'email', 'phone_number')
+
+
