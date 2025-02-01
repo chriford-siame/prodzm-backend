@@ -93,3 +93,14 @@ class OrderSerializer(serializers.ModelSerializer):
         return sum([item.quantity * item.unit_price for item in obj.items.all()])
 
 
+class ShippingSerializer(serializers.ModelSerializer):
+    """
+    Serializer for Shipping model.
+    """
+    order = OrderSerializer(read_only=True)
+
+    class Meta:
+        model = Shipping
+        fields = ('id', 'order', 'tracking_number', 'status', 'shipped_at', 'delivered_at')
+        read_only_fields = ('shipped_at', 'delivered_at')
+
