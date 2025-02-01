@@ -1,9 +1,9 @@
 from django.contrib import admin
 from django.urls import path, re_path, include
 
-from drf_yasg2 import openapi
 from rest_framework import permissions
-from drf_yasg2.views import get_schema_view
+from drf_yasg import openapi
+from drf_yasg.views import get_schema_view
 from rest_framework.authtoken import views
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
