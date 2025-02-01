@@ -57,3 +57,16 @@ class ProductImage(models.Model):
             ProductImage.objects.filter(product=self.product).update(is_main=False)
         super().save(*args, **kwargs)
 
+class Customer(models.Model):
+    """
+    Represents a customer who places orders on the website. This includes their contact information and shipping address.
+    """
+    first_name = models.CharField(max_length=255, help_text="Customer's first name.")
+    last_name = models.CharField(max_length=255, help_text="Customer's last name.")
+    email = models.EmailField(unique=True, help_text="Customer's email address (must be unique).")
+    phone_number = models.CharField(max_length=15, blank=True, help_text="Customer's phone number (optional).")
+    shipping_address = models.TextField(help_text="Customer's shipping address.")
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
