@@ -37,3 +37,23 @@ class Product(models.Model):
         """
         return self.remaining_stock > 0
 
+class ProductImage(models.Model):
+    """
+    Represents an image associated with a product. This can be the main image or additional images.
+    """
+    image = models.ImageField(upload_to='products/images/', help_text="Image file for the product.")
+    product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE, help_text="Product associated with this image.")
+    is_main = models.BooleanField(default=False, help_text="Whether this image is the main product image.")
+
+    def __str__(self):
+        return f"Image for {self.product.name} {'(Main)' if self.is_main else '(Additional)'}"
+
+    def save(self, *args, **kwargs):
+        """
+        Ensure only one image is set as the main image for a product.
+        """
+        if self.is_main:
+            # Set all other images for the product to not be the main image
+            ProductImage.objects.filter(product=self.product).update(is_main=False)
+        super().save(*args, **kwargs)
+
