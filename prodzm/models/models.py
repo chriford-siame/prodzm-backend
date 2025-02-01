@@ -1,4 +1,5 @@
 from django.db import models
+from prodzm.utils import product_image_upload_path
 
 class Category(models.Model):
     """
@@ -36,12 +37,27 @@ class Product(models.Model):
         Returns whether the product is available based on remaining stock.
         """
         return self.remaining_stock > 0
+    
+    def get_all_images(self):
+        """
+        Returns a list of all images associated with the product, including the main image and additional images.
+        """
+        # Get the main image
+        main_image = self.main_image
+
+        # Get all additional images (excluding the main image)
+        additional_images = self.images.exclude(is_main=True)
+
+        # Combine the main image with the additional images into a list
+        all_images = [main_image] + list(additional_images)
+
+        return all_images
 
 class ProductImage(models.Model):
     """
     Represents an image associated with a product. This can be the main image or additional images.
     """
-    image = models.ImageField(upload_to='products/images/', help_text="Image file for the product.")
+    image = models.ImageField(upload_to=product_image_upload_path, help_text="Image file for the product.")
     product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE, help_text="Product associated with this image.")
     is_main = models.BooleanField(default=False, help_text="Whether this image is the main product image.")
 
