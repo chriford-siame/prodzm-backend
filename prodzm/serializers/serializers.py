@@ -20,3 +20,25 @@ class ProductImageSerializer(serializers.ModelSerializer):
         fields = ('id', 'image', 'is_main')
 
 
+class ProductSerializer(serializers.ModelSerializer):
+    """
+    Serializer for Product model.
+    """
+    images = ProductImageSerializer(many=True, read_only=True)
+    category = serializers.StringRelatedField()  # Display category name
+    average_rating = serializers.FloatField(source='get_average_rating', read_only=True)
+
+    class Meta:
+        model = Product
+        fields = (
+            'id', 'name', 'category', 'price', 'remaining_stock', 'orders', 'rating', 
+            'average_rating', 'sku', 'images', 'is_available'
+        )
+        read_only_fields = ('sku', 'average_rating')
+
+    def get_average_rating(self, obj):
+        reviews = Review.objects.filter(product=obj)
+        if reviews.exists():
+            return reviews.aggregate(Avg('rating'))['rating__avg']
+        return 0
+
