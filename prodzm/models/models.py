@@ -118,3 +118,16 @@ class Shipping(models.Model):
     def __str__(self):
         return f"Shipping for Order #{self.order.id}"
 
+class Review(models.Model):
+    """
+    Represents a review left by a customer for a product they purchased.
+    Includes rating and text feedback.
+    """
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, help_text="Product being reviewed.")
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, help_text="Customer who left the review.")
+    rating = models.PositiveIntegerField(choices=[(1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5')], help_text="Rating given to the product.")
+    comment = models.TextField(help_text="Text feedback or review provided by the customer.")
+    created_at = models.DateTimeField(auto_now_add=True, help_text="Date and time when the review was created.")
+
+    def __str__(self):
+        return f"Review for {self.product.name} by {self.customer.first_name}"
