@@ -27,7 +27,6 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, help_text="Category to which this product belongs.")
     sku = models.CharField(max_length=255, unique=True, help_text="Unique Stock Keeping Unit (SKU) for this product.")
     supplier = models.CharField(max_length=255, help_text="Name of the product supplier.")
-    product_images = models.ForeignKey('ProductImage', related_name='product_images', on_delete=models.CASCADE, help_text="Main image for the product.")
     
     def __str__(self):
         return self.name
