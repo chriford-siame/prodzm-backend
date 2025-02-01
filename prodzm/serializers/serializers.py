@@ -64,3 +64,15 @@ class CustomerSerializer(serializers.ModelSerializer):
         fields = ('id', 'first_name', 'last_name', 'email', 'phone_number')
 
 
+class OrderItemSerializer(serializers.ModelSerializer):
+    """
+    Serializer for OrderItem model.
+    """
+    product = ProductSerializer(read_only=True)
+    
+    class Meta:
+        model = OrderItem
+        fields = ('id', 'order', 'product', 'quantity', 'unit_price')
+        read_only_fields = ('unit_price',)
+
+
