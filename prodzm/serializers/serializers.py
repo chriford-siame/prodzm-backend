@@ -104,3 +104,10 @@ class ShippingSerializer(serializers.ModelSerializer):
         fields = ('id', 'order', 'tracking_number', 'status', 'shipped_at', 'delivered_at')
         read_only_fields = ('shipped_at', 'delivered_at')
 
+class CategorySerializer(serializers.ModelSerializer):
+    """
+    Serializer for the Category model.
+    """
+    class Meta:
+        model = Category
+        fields = ('id', 'name', 'description', 'created_at', 'updated_at')
