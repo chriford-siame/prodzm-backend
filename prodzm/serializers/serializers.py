@@ -51,7 +51,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Review
-        fields = ('id', 'product', 'customer', 'rating', 'review_text', 'created_at')
+        fields = ('id', 'product', 'customer', 'rating', 'comment', 'created_at')
         read_only_fields = ('created_at',)
 
 
@@ -86,8 +86,8 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ('id', 'customer', 'status', 'created_at', 'updated_at', 'items', 'total_price')
-        read_only_fields = ('created_at', 'updated_at', 'total_price')
+        fields = ('id', 'customer', 'status', 'created_at', 'items', 'total_price')
+        read_only_fields = ('created_at', 'total_price')
 
     def get_total_price(self, obj):
         return sum([item.quantity * item.unit_price for item in obj.items.all()])
@@ -110,4 +110,4 @@ class CategorySerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Category
-        fields = ('id', 'name', 'description', 'created_at', 'updated_at')
+        fields = ('id', 'name', 'description')
