@@ -34,4 +34,3 @@ kill:
 
 fixtures:
 	@python manage.py loaddata categories.json
-
