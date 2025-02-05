@@ -31,3 +31,8 @@ stop:
 
 kill:
 	@docker compose down -v
+
+fixtures:
+	@python manage.py loaddata categories.json
+	@python manage.py loaddata products.json
+	@python manage.py loaddata product_images.json
