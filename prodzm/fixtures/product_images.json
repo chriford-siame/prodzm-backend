@@ -4,7 +4,7 @@
       "pk": 1,
       "fields": {
         "product": 1,
-        "image": "core/static/images/product/smart-fitness-band/main-01.jpg",
+        "image": "product/smart-fitness-band/main-01.jpg",
         "is_main": true
       }
     },
@@ -13,7 +13,7 @@
       "pk": 2,
       "fields": {
         "product": 1,
-        "image": "core/static/images/product/smart-fitness-band/side-01.jpg",
+        "image": "product/smart-fitness-band/side-01.jpg",
         "is_main": false
       }
     },
@@ -22,7 +22,7 @@
       "pk": 3,
       "fields": {
         "product": 1,
-        "image": "core/static/images/product/smart-fitness-band/angle-01.jpg",
+        "image": "product/smart-fitness-band/angle-01.jpg",
         "is_main": false
       }
     },
@@ -31,7 +31,7 @@
       "pk": 4,
       "fields": {
         "product": 2,
-        "image": "core/static/images/product/wireless-earbuds/main-01.jpg",
+        "image": "product/wireless-earbuds/main-01.jpg",
         "is_main": true
       }
     },
@@ -40,7 +40,7 @@
       "pk": 5,
       "fields": {
         "product": 2,
-        "image": "core/static/images/product/wireless-earbuds/angle-01.jpg",
+        "image": "product/wireless-earbuds/angle-01.jpg",
         "is_main": false
       }
     },
@@ -49,7 +49,7 @@
       "pk": 6,
       "fields": {
         "product": 2,
-        "image": "core/static/images/product/wireless-earbuds/side-01.jpg",
+        "image": "product/wireless-earbuds/side-01.jpg",
         "is_main": false
       }
     },
@@ -58,7 +58,7 @@
       "pk": 7,
       "fields": {
         "product": 3,
-        "image": "core/static/images/product/mechanical-keyboard/main-01.jpg",
+        "image": "product/mechanical-keyboard/main-01.jpg",
         "is_main": true
       }
     },
@@ -67,7 +67,7 @@
       "pk": 8,
       "fields": {
         "product": 3,
-        "image": "core/static/images/product/mechanical-keyboard/angle-01.jpg",
+        "image": "product/mechanical-keyboard/angle-01.jpg",
         "is_main": false
       }
     },
@@ -76,7 +76,7 @@
       "pk": 9,
       "fields": {
         "product": 3,
-        "image": "core/static/images/product/mechanical-keyboard/side-01.jpg",
+        "image": "product/mechanical-keyboard/side-01.jpg",
         "is_main": false
       }
     }
