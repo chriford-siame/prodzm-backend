@@ -1,0 +1,142 @@
+[
+    {
+        "model": "prodzm.product",
+        "pk": 1,
+        "fields": {
+            "name": "Smart Fitness Band",
+            "category": 1,
+            "price": 49.99,
+            "remaining_stock": 100,
+            "orders": 10,
+            "rating": 4.7,
+            "shipping_cost": 0.0,
+            "sku": "SR0023123322"
+        }
+    },
+    {
+        "model": "prodzm.product",
+        "pk": 2,
+        "fields": {
+            "name": "Wireless Bluetooth Earbuds",
+            "category": 2,
+            "price": 39.99,
+            "remaining_stock": 200,
+            "orders": 50,
+            "rating": 4.5,
+            "shipping_cost": 0.0,
+            "sku": "SR0023112332"
+        }
+    },
+    {
+        "model": "prodzm.product",
+        "pk": 3,
+        "fields": {
+            "name": "Gaming Mechanical Keyboard",
+            "category": 3,
+            "price": 89.99,
+            "remaining_stock": 30,
+            "orders": 15,
+            "rating": 4.8,
+            "shipping_cost": 0.0,
+            "sku": "SR0023123132"
+        }
+    },
+    {
+        "model": "prodzm.product",
+        "pk": 4,
+        "fields": {
+            "name": "Portable Power Bank 20000mAh",
+            "category": 4,
+            "price": 29.99,
+            "remaining_stock": 75,
+            "orders": 25,
+            "rating": 4.6,
+            "shipping_cost": 0.0,
+            "sku": "SR0302312332"
+        }
+    },
+    {
+        "model": "prodzm.product",
+        "pk": 5,
+        "fields": {
+            "name": "USB-C Fast Charging Cable (3-Pack)",
+            "category": 4,
+            "price": 19.99,
+            "remaining_stock": 300,
+            "orders": 100,
+            "rating": 4.3,
+            "shipping_cost": 0.0,
+            "sku": "SR0023412332"
+        }
+    },
+    {
+        "model": "prodzm.product",
+        "pk": 6,
+        "fields": {
+            "name": "4K Ultra HD Webcam",
+            "category": 3,
+            "price": 59.99,
+            "remaining_stock": 20,
+            "orders": 8,
+            "rating": 4.2,
+            "shipping_cost": 0.0,
+            "sku": "SR0023127332"
+        }
+    },
+    {
+        "model": "prodzm.product",
+        "pk": 7,
+        "fields": {
+            "name": "Smart LED Light Bulb (WiFi Enabled)",
+            "category": 5,
+            "price": 14.99,
+            "remaining_stock": 150,
+            "orders": 40,
+            "rating": 4.4,
+            "shipping_cost": 0.0,
+            "sku": "SR0023182332"
+        }
+    },
+    {
+        "model": "prodzm.product",
+        "pk": 8,
+        "fields": {
+            "name": "Ergonomic Office Chair",
+            "category": 6,
+            "price": 199.99,
+            "remaining_stock": 10,
+            "orders": 5,
+            "rating": 4.9,
+            "shipping_cost": 0.0,
+            "sku": "SR0023123032"
+        }
+    },
+    {
+        "model": "prodzm.product",
+        "pk": 9,
+        "fields": {
+            "name": "Laptop Cooling Pad",
+            "category": 3,
+            "price": 34.99,
+            "remaining_stock": 50,
+            "orders": 20,
+            "rating": 4.1,
+            "shipping_cost": 0.0,
+            "sku": "SR002311232"
+        }
+    },
+    {
+        "model": "prodzm.product",
+        "pk": 10,
+        "fields": {
+            "name": "VR Headset for Gaming",
+            "category": 7,
+            "price": 299.99,
+            "remaining_stock": 15,
+            "orders": 12,
+            "rating": 4.7,
+            "shipping_cost": 0.0,
+            "sku": "SR00223732"
+        }
+    }
+]

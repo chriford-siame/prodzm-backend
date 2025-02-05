@@ -1,0 +1,300 @@
+[
+    {
+      "model": "prodzm.productimage",
+      "pk": 1,
+      "fields": {
+        "product": 1,
+        "image": "product/smart-fitness-band/main-01.jpg",
+        "is_main": true
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 2,
+      "fields": {
+        "product": 1,
+        "image": "product/smart-fitness-band/side-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 3,
+      "fields": {
+        "product": 1,
+        "image": "product/smart-fitness-band/angle-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 4,
+      "fields": {
+        "product": 2,
+        "image": "product/wireless-earbuds/main-01.jpg",
+        "is_main": true
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 5,
+      "fields": {
+        "product": 2,
+        "image": "product/wireless-earbuds/angle-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 6,
+      "fields": {
+        "product": 2,
+        "image": "product/wireless-earbuds/side-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 7,
+      "fields": {
+        "product": 3,
+        "image": "product/mechanical-keyboard/main-01.jpg",
+        "is_main": true
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 8,
+      "fields": {
+        "product": 3,
+        "image": "product/mechanical-keyboard/angle-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 9,
+      "fields": {
+        "product": 3,
+        "image": "product/mechanical-keyboard/side-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 10,
+      "fields": {
+        "product": 4,
+        "image": "product/mobile-accessories/main-01.jpg",
+        "is_main": true
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 11,
+      "fields": {
+        "product": 4,
+        "image": "product/mobile-accessories/angle-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 12,
+      "fields": {
+        "product": 4,
+        "image": "product/mobile-accessories/side-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 10,
+      "fields": {
+        "product": 4,
+        "image": "product/mobile-accessories/main-01.jpeg",
+        "is_main": true
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 11,
+      "fields": {
+        "product": 4,
+        "image": "product/mobile-accessories/angle-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 12,
+      "fields": {
+        "product": 4,
+        "image": "product/mobile-accessories/side-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 13,
+      "fields": {
+        "product": 5,
+        "image": "product/smart-home/main-01.jpg",
+        "is_main": true
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 14,
+      "fields": {
+        "product": 5,
+        "image": "product/smart-home/angle-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 15,
+      "fields": {
+        "product": 5,
+        "image": "product/smart-home/side-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 16,
+      "fields": {
+        "product": 6,
+        "image": "product/computer-and-gaming/main-01.jpg",
+        "is_main": true
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 17,
+      "fields": {
+        "product": 6,
+        "image": "product/computer-and-gaming/angle-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 18,
+      "fields": {
+        "product": 6,
+        "image": "product/computer-and-gaming/side-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 19,
+      "fields": {
+        "product": 7,
+        "image": "product/virtual-reality/main-01.jpg",
+        "is_main": true
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 20,
+      "fields": {
+        "product": 7,
+        "image": "product/virtual-reality/angle-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 21,
+      "fields": {
+        "product": 7,
+        "image": "product/virtual-reality/side-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 22,
+      "fields": {
+        "product": 8,
+        "image": "product/furniture/main-01.jpg",
+        "is_main": true
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 23,
+      "fields": {
+        "product": 8,
+        "image": "product/furniture/angle-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 24,
+      "fields": {
+        "product": 8,
+        "image": "product/furniture/side-01.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 25,
+      "fields": {
+        "product": 9,
+        "image": "product/furniture/main-02.jpg",
+        "is_main": true
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 26,
+      "fields": {
+        "product": 9,
+        "image": "product/furniture/angle-02.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 27,
+      "fields": {
+        "product": 9,
+        "image": "product/furniture/side-02.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 28,
+      "fields": {
+        "product": 10,
+        "image": "product/furniture/main-02.jpg",
+        "is_main": true
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 29,
+      "fields": {
+        "product": 10,
+        "image": "product/furniture/angle-02.jpg",
+        "is_main": false
+      }
+    },
+    {
+      "model": "prodzm.productimage",
+      "pk": 30,
+      "fields": {
+        "product": 10,
+        "image": "product/furniture/side-02.jpg",
+        "is_main": false
+      }
+    }
+  ]
+  
