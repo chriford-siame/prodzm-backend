@@ -139,7 +139,7 @@
       "pk": 13,
       "fields": {
         "product": 5,
-        "image": "product/smart-home/main-01.jpg",
+        "image": "product/mobile-accessories/main-02.jpg",
         "is_main": true
       }
     },
@@ -148,7 +148,7 @@
       "pk": 14,
       "fields": {
         "product": 5,
-        "image": "product/smart-home/angle-01.jpg",
+        "image": "product/mobile-accessories/angle-02.jpg",
         "is_main": false
       }
     },
@@ -157,7 +157,7 @@
       "pk": 15,
       "fields": {
         "product": 5,
-        "image": "product/smart-home/side-01.jpg",
+        "image": "product/mobile-accessories/side-02.jpg",
         "is_main": false
       }
     },
@@ -193,7 +193,7 @@
       "pk": 19,
       "fields": {
         "product": 7,
-        "image": "product/virtual-reality/main-01.jpg",
+        "image": "product/smart-home/main-01.jpg",
         "is_main": true
       }
     },
@@ -202,7 +202,7 @@
       "pk": 20,
       "fields": {
         "product": 7,
-        "image": "product/virtual-reality/angle-01.jpg",
+        "image": "product/smart-home/angle-01.jpg",
         "is_main": false
       }
     },
@@ -211,7 +211,7 @@
       "pk": 21,
       "fields": {
         "product": 7,
-        "image": "product/virtual-reality/side-01.jpg",
+        "image": "product/smart-home/side-01.jpg",
         "is_main": false
       }
     },
@@ -247,7 +247,7 @@
       "pk": 25,
       "fields": {
         "product": 9,
-        "image": "product/furniture/main-02.jpg",
+        "image": "product/computer-and-gaming/main-02.jpg",
         "is_main": true
       }
     },
@@ -256,7 +256,7 @@
       "pk": 26,
       "fields": {
         "product": 9,
-        "image": "product/furniture/angle-02.jpg",
+        "image": "product/computer-and-gaming/angle-02.jpg",
         "is_main": false
       }
     },
@@ -265,7 +265,7 @@
       "pk": 27,
       "fields": {
         "product": 9,
-        "image": "product/furniture/side-02.jpg",
+        "image": "product/computer-and-gaming/side-02.jpg",
         "is_main": false
       }
     },
@@ -274,7 +274,7 @@
       "pk": 28,
       "fields": {
         "product": 10,
-        "image": "product/furniture/main-02.jpg",
+        "image": "product/virtual-reality/main-01.jpg",
         "is_main": true
       }
     },
@@ -283,7 +283,7 @@
       "pk": 29,
       "fields": {
         "product": 10,
-        "image": "product/furniture/angle-02.jpg",
+        "image": "product/virtual-reality/angle-01.jpg",
         "is_main": false
       }
     },
@@ -292,7 +292,7 @@
       "pk": 30,
       "fields": {
         "product": 10,
-        "image": "product/furniture/side-02.jpg",
+        "image": "product/virtual-reality/side-01.jpg",
         "is_main": false
       }
     }
