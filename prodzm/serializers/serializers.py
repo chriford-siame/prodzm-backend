@@ -10,7 +10,7 @@ from prodzm.models import (
     Review,
 )
 from django.db.models.aggregates import Avg
-
+import json
 class ProductImageSerializer(serializers.ModelSerializer):
     """
     Serializer for ProductImage model.
@@ -20,7 +20,7 @@ class ProductImageSerializer(serializers.ModelSerializer):
         fields = ('id', 'image', 'is_main')
 
 
-class ProductSerializer(serializers.ModelSerializer):
+class RelatedProductSerializer(serializers.ModelSerializer):
     """
     Serializer for Product model.
     """
@@ -32,7 +32,7 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = (
             'id', 'name', 'category', 'price', 'remaining_stock', 'orders', 'rating', 
-            'average_rating', 'sku', 'images', 'is_available'
+            'average_rating', 'sku', 'images', 'is_available', 'has_images',
         )
         read_only_fields = ('sku', 'average_rating')
 
@@ -41,6 +41,33 @@ class ProductSerializer(serializers.ModelSerializer):
         if reviews.exists():
             return reviews.aggregate(Avg('rating'))['rating__avg']
         return 0
+
+class ProductSerializer(serializers.ModelSerializer):
+    """
+    Serializer for Product model.
+    """
+    images = ProductImageSerializer(many=True, read_only=True)
+    category = serializers.StringRelatedField()  # Display category name
+    average_rating = serializers.FloatField(source='get_average_rating', read_only=True)
+    related_products = serializers.SerializerMethodField()
+    class Meta:
+        model = Product
+        fields = (
+            'id', 'name', 'category', 'price', 'remaining_stock', 'orders', 'rating', 
+            'average_rating', 'sku', 'images', 'is_available', 'has_images', 'related_products'
+        )
+        read_only_fields = ('sku', 'average_rating')
+
+    def get_average_rating(self, obj):
+        reviews = Review.objects.filter(product=obj)
+        if reviews.exists():
+            return reviews.aggregate(Avg('rating'))['rating__avg']
+        return 0
+    
+    def get_related_products(self, obj):
+        """Fetch other products in the same category (excluding current product)"""
+        related = Product.objects.filter(category=obj.category).exclude(id=obj.id)
+        return RelatedProductSerializer(related, many=True).data
 
 
 class ReviewSerializer(serializers.ModelSerializer):
