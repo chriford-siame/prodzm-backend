@@ -51,7 +51,15 @@ class Product(models.Model):
         all_images = [main_image] + list(additional_images)
 
         return all_images
-
+    
+    def has_images(self):
+        """
+        Returns True if the current product has associated images otherwise returns False.
+        """
+        if self.images:
+            return True
+        return False
+    
 class ProductImage(models.Model):
     """
     Represents an image associated with a product. This can be the main image or additional images.
