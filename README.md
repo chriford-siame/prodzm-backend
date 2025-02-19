@@ -47,9 +47,13 @@ python manage.py createsuperuser
 python manage.py runserver 0.0.0.0:8000
 ```
 
-## 📌 2️⃣ Load Fixture Data(Optional):
+## 📌 3️⃣ Load Fixture Data(Optional):
 ```bash
 python manage.py loaddata categories.json
 python manage.py loaddata products.json
 python manage.py loaddata product_images.json
 ```
+
+## 📌 System Architecture
+The project system design & client side workflows are located on google drive: 👇
+https://drive.google.com/file/d/1G5T5IuQ8VuzOcyHNc-k2fZqzBz5JnIkH/view?usp=drive_link
