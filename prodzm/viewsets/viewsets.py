@@ -61,7 +61,7 @@ class ProductViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(price__lte=price)
 
         # Search query across multiple fields
-        qs = request.query_params.get('search')
+        qs = request.query_params.get('qs')
         if qs:
             queryset = queryset.filter(
                 Q(name__icontains=qs) | Q(description__icontains=qs)
