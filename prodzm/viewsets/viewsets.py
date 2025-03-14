@@ -9,6 +9,9 @@ from prodzm.models import (
     OrderItem, 
     Shipping
 )
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from django.db.models import Q
 from prodzm.serializers import (
     ProductSerializer, 
     ProductImageSerializer, 
@@ -27,8 +30,6 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-<<<<<<< Updated upstream
-=======
     
     @action(detail=False, methods=['get'])
     def search(self, request):
@@ -67,7 +68,6 @@ class ProductViewSet(viewsets.ModelViewSet):
 
         serializer = ProductSerializer(queryset, many=True)
         return Response(serializer.data)
->>>>>>> Stashed changes
 
 class ProductImageViewSet(viewsets.ModelViewSet):
     """
