@@ -93,12 +93,23 @@ class Customer(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
+class OrderItem(models.Model):
+    """
+    Represents an individual item in an order. Each item is linked to a product and order.
+    """
+    order = models.ForeignKey('Order', related_name='items', on_delete=models.CASCADE, help_text="Order this item belongs to.")
+    product = models.ForeignKey('Product', on_delete=models.CASCADE, help_text="Product being ordered.")
+    quantity = models.PositiveIntegerField(help_text="Quantity of the product being ordered.")
+    unit_price = models.DecimalField(max_digits=10, decimal_places=2, help_text="Price of the product at the time of the order.")
+
+    def __str__(self):
+        return f"{self.product.name} (x{self.quantity})"
 
 class Order(models.Model):
     """
     Represents an order placed by a customer, containing details about the status and total price.
     """
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, help_text="Customer who placed the order.")
+    customer = models.ForeignKey('Customer', on_delete=models.CASCADE, help_text="Customer who placed the order.")
     created_at = models.DateTimeField(auto_now_add=True, help_text="Date and time when the order was created.")
     status = models.CharField(
         max_length=50, 
@@ -108,26 +119,18 @@ class Order(models.Model):
     )
     total_price = models.DecimalField(max_digits=10, decimal_places=2, help_text="Total price of the order.")
 
+    def save(self, *args, **kwargs):
+        # Implement a logic that automatically updates the total_price value with the sum of all OrderItems that have an ID linked to this Order.
+        return super().save(*args, **kwargs)
+
     def __str__(self):
         return f"Order #{self.id} by {self.customer}"
-
-class OrderItem(models.Model):
-    """
-    Represents an individual item in an order. Each item is linked to a product and order.
-    """
-    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE, help_text="Order this item belongs to.")
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, help_text="Product being ordered.")
-    quantity = models.PositiveIntegerField(help_text="Quantity of the product being ordered.")
-    unit_price = models.DecimalField(max_digits=10, decimal_places=2, help_text="Price of the product at the time of the order.")
-
-    def __str__(self):
-        return f"{self.product.name} (x{self.quantity})"
 
 class Shipping(models.Model):
     """
     Represents shipping information for an order, including tracking number and shipping status.
     """
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, help_text="Order associated with this shipping info.")
+    order = models.ForeignKey('Order', on_delete=models.CASCADE, help_text="Order associated with this shipping info.")
     tracking_number = models.CharField(max_length=255, help_text="Tracking number for the shipped order.")
     status = models.CharField(
         max_length=50, 
@@ -146,8 +149,8 @@ class Review(models.Model):
     Represents a review left by a customer for a product they purchased.
     Includes rating and text feedback.
     """
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, help_text="Product being reviewed.")
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, help_text="Customer who left the review.")
+    product = models.ForeignKey('Product', on_delete=models.CASCADE, help_text="Product being reviewed.")
+    customer = models.ForeignKey('Customer', on_delete=models.CASCADE, help_text="Customer who left the review.")
     rating = models.PositiveIntegerField(choices=[(1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5')], help_text="Rating given to the product.")
     comment = models.TextField(help_text="Text feedback or review provided by the customer.")
     created_at = models.DateTimeField(auto_now_add=True, help_text="Date and time when the review was created.")
