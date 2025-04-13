@@ -20,8 +20,10 @@ from prodzm.serializers import (
     CustomerSerializer, 
     OrderSerializer, 
     OrderItemSerializer, 
-    ShippingSerializer
+    ShippingSerializer,
+    UserSerializer,
 )
+from django.contrib.auth.models import User
 
 class ProductViewSet(viewsets.ModelViewSet):
     """
@@ -84,6 +86,13 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet for managing product categories.
+    """
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 class ReviewViewSet(viewsets.ModelViewSet):
     """
