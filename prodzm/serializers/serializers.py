@@ -9,6 +9,7 @@ from prodzm.models import (
     Shipping,
     Review,
 )
+from django.contrib.auth.models import User
 from django.db.models.aggregates import Avg
 import json
 class ProductImageSerializer(serializers.ModelSerializer):
@@ -80,6 +81,16 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = Review
         fields = ('id', 'product', 'customer', 'rating', 'comment', 'created_at')
         read_only_fields = ('created_at',)
+
+
+class UserSerializer(serializers.ModelSerializer):
+    """
+    Serializer for User model.
+    """
+
+    class Meta:
+        model = User
+        fields = '__all__'
 
 
 class CustomerSerializer(serializers.ModelSerializer):

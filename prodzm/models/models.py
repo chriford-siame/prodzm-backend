@@ -1,5 +1,6 @@
 from django.db import models
 from prodzm.utils import product_image_upload_path
+from django.db.models import Sum, F
 
 class Category(models.Model):
     """
@@ -117,10 +118,16 @@ class Order(models.Model):
         default='pending', 
         help_text="Current status of the order."
     )
-    total_price = models.DecimalField(max_digits=10, decimal_places=2, help_text="Total price of the order.")
+    total_price = models.DecimalField(null=True, blank=True, max_digits=10, decimal_places=2, help_text="Total price of the order.")
 
     def save(self, *args, **kwargs):
-        # Implement a logic that automatically updates the total_price value with the sum of all OrderItems that have an ID linked to this Order.
+        # Calculate total price from related OrderItems
+        if self.pk and self.items.exists():
+            total = self.items.aggregate(
+                total=Sum(F('unit_price') * F('quantity'))
+            )['total'] or 0
+
+            self.total_price = total
         return super().save(*args, **kwargs)
 
     def __str__(self):
