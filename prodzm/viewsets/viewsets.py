@@ -10,6 +10,7 @@ from prodzm.models import (
     Shipping
 )
 from rest_framework.decorators import action
+from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 from django.db.models import Q
 from prodzm.serializers import (
@@ -93,7 +94,25 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    
+    def get_object(self):
+        lookup_value = self.kwargs.get(self.lookup_field)
+        
+        # Try ID lookup first
+        if lookup_value.isdigit():
+            try:
+                return User.objects.get(id=lookup_value)
+            except User.DoesNotExist:
+                raise NotFound("User with this ID does not exist.")
+        
+        # Fallback to username lookup
+        try:
+            return User.objects.get(username=lookup_value)
+        except User.DoesNotExist:
+            raise NotFound("User with this username does not exist.")
 
+    lookup_field = 'lookup'  # Custom URL parameter
+    
 class ReviewViewSet(viewsets.ModelViewSet):
     """
     ViewSet for managing product reviews.
