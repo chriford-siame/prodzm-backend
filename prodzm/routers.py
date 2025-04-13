@@ -2,11 +2,12 @@ from rest_framework.routers import DefaultRouter
 
 from prodzm.viewsets import (
     ProductViewSet, ProductImageViewSet, CategoryViewSet, ReviewViewSet,
-    CustomerViewSet, OrderViewSet, OrderItemViewSet, ShippingViewSet
+    CustomerViewSet, OrderViewSet, OrderItemViewSet, ShippingViewSet, UserViewSet
 )
 
 # Create a router and register the ViewSets
 router = DefaultRouter()
+router.register(r'users', UserViewSet)
 router.register(r'products', ProductViewSet)
 router.register(r'product-images', ProductImageViewSet)
 router.register(r'categories', CategoryViewSet)
